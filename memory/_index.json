@@ -1,0 +1,17 @@
+{
+ "version": "4.0",
+ "agent_version": "4.4.0",
+ "updated_at": "2026-10-10",
+ "projects": {},
+ "_archived": {},
+ "meta": {
+  "agent_version": "4.4.0",
+  "session": {
+   "active_project": null,
+   "pending_action": "新项目：走 10+1+1 角色管线；已有项目：读 pipeline/engineering_mode.md 走 6 步迭代",
+   "pending_summary": "空记忆库——第一条项目记忆待写入",
+   "last_session": ""
+  },
+  "updated_at": "2026-10-10"
+ }
+}
