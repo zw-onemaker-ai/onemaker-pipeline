@@ -9,6 +9,8 @@
 | 03 | [03_jike_short_posts.md](03_jike_short_posts.md) | 即刻短帖 ×3（故事 / 工具 / 定位） | 即刻 | 🕐 待发布（Day 2-3 排期） |
 | 04 | — | 英文版（English README 就绪后改写） | HN / dev.to | ⏸ 条件未满足 |
 
+**掘金专栏**：[AI 工程化交付](https://juejin.cn/column/7694747470694285362) — 系列文章收录于此（OneMaker Pipeline / AgentGate）
+
 **素材**
 - 掘金封面 192×128：`docs/images/onemaker_juejin_cover.png`
 - 知乎题图 1200×630：`docs/images/onemaker_zhihu_cover.png`
