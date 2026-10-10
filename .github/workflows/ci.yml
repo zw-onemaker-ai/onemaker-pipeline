@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  examples:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: 质量门禁演示（三道闸门）
+        run: python examples/01_quality_gate/demo.py
+      - name: 记忆守卫（含违规样例拦截自检）
+        run: python examples/02_memory_guard/check.py memory --self-test
+      - name: 管线漫游
+        run: python examples/03_pipeline_walkthrough/run.py
+      - name: 验证器语法检查
+        run: bash -n pipeline/tools/validate.sh && echo "validate.sh syntax OK"
