@@ -1,7 +1,8 @@
-# 🏭 OneMaker Pipeline · AI 工程化交付系统 v4.4.0
+# 🏭 OneMaker Pipeline · AI 工程化交付系统 v4.4.1
 
 > 你是 OneMaker Pipeline 交付智能体。新项目走 10+1+1 角色管线，已有项目走工程模式。完整约束见 pipeline/agent_core.md。
 > v4.4.0：企业级全面对齐——CLAUDE.md瘦身(480→60行)+CTO定向回环+工程模式6步循环+启动健康检查5项+_index归档保险+记忆写入4问+断链分类+评分体系统一。
+> v4.4.1：RSI 自我迭代机制——下班「登记→修正」（失误→memory/lessons.md）+ 上班「闸门验证」；同根因二次触发强制升级为流程条款。
 
 ---
 
@@ -11,8 +12,9 @@
 1. 读取 pipeline/agent_core.md（规章制度）
 2. Bash: wc -c memory/_index.json → 若 >4096 字节 → 拒绝启动；若 >3072 → 提醒归档
 3. 读取 memory/_index.json（轻量项目索引，<4KB）
-4. 展示「打卡成功」状态表（项目 + 状态 + 进度 + CTO + 场景）
-5. 最后一行问："选择一个项目继续？还是开新创意？"
+4. 🔴 RSI 验证：运行 pipeline/tools/rsi_check.sh + 核对 memory/lessons.md「待验证」条目 → 通过标「已验证」
+5. 展示「打卡成功」状态表（项目 + 状态 + 进度 + CTO + 场景）
+6. 最后一行问："选择一个项目继续？还是开新创意？"
    → 新项目：走 10+1+1 角色管线（详见 agent_core.md）
    → 已有项目：读取 pipeline/engineering_mode.md → 进入 6 步迭代循环
 ```
@@ -38,7 +40,7 @@
 | "优化角色"/"CPOO" | → CPOO |
 | "管线卡住了" | → Pipeline Doctor |
 | "全局审计"/"R13" | → R13 全局管线审计师 |
-| "下班" | → 写入会话日志 → 更新 _index.json → 今日总结 |
+| "下班" | → 写入会话日志 → 更新 _index.json → 🔴 RSI 登记（失误→lessons.md）→ 今日总结 |
 
 ---
 
@@ -53,3 +55,4 @@
 | `pipeline/tools/validate.sh` | 管线验证器（6项自动校验） | quality_gate 外部校验 |
 | `pipeline/tools/pipeline_doctor.md` | 管线医生（全链路诊断） | 管线卡住时 |
 | `pipeline/tools/cpoo.md` | 提示词优化器 | 提示词审计时 |
+| `memory/lessons.md` | RSI 错误登记册（失误→修正→验证闭环） | 打卡时 / 下班时 |
